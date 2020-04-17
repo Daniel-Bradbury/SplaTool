@@ -3,11 +3,15 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading;
+
 namespace SplaToolMenu
 {
     public class Mouse
     {
-        public static string Status = "released";
+        public static Boolean Pressed = false;
+        public static Boolean _Pressed = false;
+        public static Boolean Clicked = false;
         public static int X = 0;
         public static int Y = 0;
         public static void Pos(int x, int y)
@@ -37,13 +41,14 @@ namespace SplaToolMenu
                 {
                     case NativeMethods.MOUSE_EVENT:
                         {
+                            Mouse._Pressed = Mouse.Pressed;
                             if (record.MouseEvent.dwButtonState == 0x001)
                             {
-                                Mouse.Status = "pressed";
+                                Mouse.Pressed = true;
                             }
                             else
                             {
-                                Mouse.Status = "released";
+                                Mouse.Pressed = false;
                             }
                             Mouse.Pos(record.MouseEvent.dwMousePosition.X, record.MouseEvent.dwMousePosition.Y);
                             //Console.WriteLine(string.Format("    X ...............:   {0,4:0}  ", record.MouseEvent.dwMousePosition.X));
@@ -53,6 +58,15 @@ namespace SplaToolMenu
                             //Console.WriteLine(string.Format("    dwEventFlags ....: 0x{0:X4}  ", record.MouseEvent.dwEventFlags));
                         }
                         break;
+                }
+                if (Mouse.Pressed == true
+                 && Mouse._Pressed == false)
+                {
+                    Mouse.Clicked = true;
+                }
+                else
+                {
+                    Mouse.Clicked = false;
                 }
             }
         }
