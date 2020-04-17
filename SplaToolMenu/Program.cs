@@ -25,8 +25,9 @@ namespace SplaToolMenu
         {
             for (; ; )
             {
-                if (Button.Clicked(1, 2, 10, 4))
+                if (Button.Clicked(1, 2, 10, 4)) //FestTool
                 {
+
                     Environment.Exit(1);
                 }
             }
