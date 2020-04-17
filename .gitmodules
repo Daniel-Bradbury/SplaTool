@@ -1,0 +1,3 @@
+[submodule "FestTool"]
+	path = FestTool
+	url = https://github.com/Daniel-Bradbury/FestTool
