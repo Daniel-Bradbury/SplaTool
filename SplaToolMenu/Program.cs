@@ -16,9 +16,11 @@ namespace SplaToolMenu
                 #if DEBUG
                     Console.WriteLine("X:" + Mouse.X + " Y:" + Mouse.Y + " Status:" + Mouse.Status + "      ");
                 #else
-                    Console.Write("\n");
-                #endif
-                Console.WriteLine();
+                    Console.WriteLine("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
+#endif
+                Console.WriteLine("┌────────┐");
+                Console.WriteLine("|FestTool|");
+                Console.WriteLine("└────────┘");
             }
         }
     }
