@@ -13,7 +13,12 @@ namespace SplaToolMenu
             {
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("Splatools v0.3");
-                Console.WriteLine("X:" + Mouse.X + " Y:"+ Mouse.Y + " Status:" + Mouse.Status + "      ");
+                #if DEBUG
+                    Console.WriteLine("X:" + Mouse.X + " Y:" + Mouse.Y + " Status:" + Mouse.Status + "      ");
+                #else
+                    Console.Write("\n");
+                #endif
+                Console.WriteLine();
             }
         }
     }
