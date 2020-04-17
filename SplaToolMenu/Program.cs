@@ -9,6 +9,7 @@ namespace SplaToolMenu
         {
             Thread MouseThread = new Thread(Mouse.MouseThread);
             MouseThread.Start();
+            Console.CursorVisible = false;
             for (; ; )
             {
                 Console.SetCursorPosition(0, 0);
@@ -17,10 +18,10 @@ namespace SplaToolMenu
                     Console.WriteLine("X:" + Mouse.X + " Y:" + Mouse.Y + " Status:" + Mouse.Status + "      ");
                 #else
                     Console.WriteLine("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
-#endif
-                Console.WriteLine("┌────────┐");
-                Console.WriteLine("|FestTool|");
-                Console.WriteLine("└────────┘");
+                #endif
+                Console.WriteLine(" ┌────────┐");
+                Console.WriteLine(" |FestTool|");
+                Console.WriteLine(" └────────┘");
             }
         }
     }
