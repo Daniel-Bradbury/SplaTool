@@ -2,8 +2,8 @@
 echo Initialising...
 rd /S /Q "%cd%\BUILD"
 echo Compiling binaries...
-start /B csc -out:SplaTools.exe SplaToolsMenu\*.cs
-processing-java --sketch="%cd%\FestTool" --no-java --export --platform windows
+start /B csc -out:SplaTools.exe SplaToolsMenu\*.cs >nul
+processing-java --sketch="%cd%\FestTool" --no-java --export --platform windows >nul
 echo Moving binaries into build folder...
 cd FestTool
 ren application.windows32 FestTool32
