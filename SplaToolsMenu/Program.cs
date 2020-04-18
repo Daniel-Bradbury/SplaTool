@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
+using System.IO;
 namespace SplaToolMenu
 {
     class Program
@@ -27,7 +28,8 @@ namespace SplaToolMenu
             {
                 if (Button.Clicked(1, 2, 10, 4)) //FestTool
                 {
-
+                    Directory.SetCurrentDirectory("FestTool");
+                    Process.Start("FestTool.exe");
                     Environment.Exit(1);
                 }
             }
