@@ -1,33 +1,31 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Threading;
 using System.Runtime.InteropServices;
+using System.Threading;
 namespace SplaToolMenu
 {
     class Program
     {
         static void Draw()
         {
-            for (; ; )
-            {
-                Console.SetCursorPosition(0, 0);
-                Console.WriteLine("   Splatools v0.3");
-                #if DEBUG
-                    Console.WriteLine("X:" + Mouse.X + " Y:" + Mouse.Y + " Pressed?:" + Mouse.Pressed + " Clicked?:" + Mouse.Clicked + "      ");
-                #else
-                    Console.WriteLine("  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
-                #endif
-                Console.BackgroundColor = ConsoleColor.Gray;
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.CursorLeft += 5; Console.WriteLine("▀▀▀▀▀▀▀▀▀▀");
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.CursorLeft += 5; Console.WriteLine(" FestTool ");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.CursorLeft += 5; Console.WriteLine("▄▄▄▄▄▄▄▄▄▄");
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.BackgroundColor = ConsoleColor.White;
-            }
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("   Splatools v0.3");
+            #if DEBUG
+                Console.WriteLine("X:" + Mouse.X + " Y:" + Mouse.Y + " Pressed?:" + Mouse.Pressed + " Clicked?:" + Mouse.Clicked + "      ");
+            #else
+                Console.WriteLine("  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
+            #endif
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.CursorLeft += 5; Console.WriteLine("▀▀▀▀▀▀▀▀▀▀");
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.CursorLeft += 5; Console.WriteLine(" FestTool ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.CursorLeft += 5; Console.WriteLine("▄▄▄▄▄▄▄▄▄▄");
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.White;
+
         }
         static void ButtonLoop()
         {
