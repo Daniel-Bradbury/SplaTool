@@ -12,22 +12,22 @@ ren application.windows64 FestTool64
 cd ..
 mkdir BUILD
 cd BUILD
-mkdir 64
-mkdir 32
-cd 32
+mkdir SplaTools64
+mkdir SplaTools32
+cd SplaTools32
 mkdir data
 cd ..
-cd 64
+cd SplaTools64
 mkdir data
 cd ..
 cd ..
-move FestTool\FestTool32 BUILD\32\FestTool
-move FestTool\FestTool64 BUILD\64\FestTool
-copy SplaTools.exe BUILD\32
-move SplaTools.exe BUILD\64
-copy SplaToolsMenu\Zoom.exe BUILD\32\data
-move SplaToolsMenu\Zoom.exe BUILD\64\data
+move FestTool\FestTool32 BUILD\SplaTools32\FestTool
+move FestTool\FestTool64 BUILD\SplaTools64\FestTool
+copy SplaTools.exe BUILD\SplaTools32
+move SplaTools.exe BUILD\SplaTools64
+copy SplaToolsMenu\Zoom.exe BUILD\SplaTools32\data
+move SplaToolsMenu\Zoom.exe BUILD\SplaTools64\data
 echo Cleaning up...
-rd /S /Q "%cd%\BUILD\32\FestTool\source"
-rd /S /Q "%cd%\BUILD\64\FestTool\source"
+rd /S /Q "%cd%\BUILD\SplaTools32\FestTool\source"
+rd /S /Q "%cd%\BUILD\SplaTools64\FestTool\source"
 echo Done!
