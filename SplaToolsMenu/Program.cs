@@ -7,7 +7,7 @@ namespace SplaToolMenu
 {
     class Program
     {
-        static void DrawLoop()
+        static void Draw()
         {
             for (; ; )
             {
@@ -82,12 +82,11 @@ namespace SplaToolMenu
             Console.CursorVisible = false;
 
             Thread MouseThread = new Thread(Mouse.MouseThread);
-            Thread DrawThread = new Thread(DrawLoop);
             Thread ButtonThread = new Thread(ButtonLoop);
 
             MouseThread.Start();
-            DrawThread.Start();
             ButtonThread.Start();
+            Draw();
         }
     }
 }
