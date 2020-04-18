@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading;
 using System.IO;
+using System.Threading;
 namespace SplaToolMenu
 {
     class Program
@@ -12,11 +12,11 @@ namespace SplaToolMenu
             {
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("Splatools v0.3");
-                #if DEBUG
-                    Console.WriteLine("X:" + Mouse.X + " Y:" + Mouse.Y + " Pressed?:" + Mouse.Pressed + " Clicked?:" + Mouse.Clicked + "      ");
-                #else
-                    Console.WriteLine("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
-                #endif
+#if DEBUG
+                Console.WriteLine("X:" + Mouse.X + " Y:" + Mouse.Y + " Pressed?:" + Mouse.Pressed + " Clicked?:" + Mouse.Clicked + "      ");
+#else
+            Console.WriteLine("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
+#endif
                 Console.WriteLine(" ┌────────┐");
                 Console.WriteLine(" |FestTool|");
                 Console.WriteLine(" └────────┘");
@@ -37,6 +37,9 @@ namespace SplaToolMenu
 
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.BackgroundColor = ConsoleColor.Magenta;
+            Console.Clear();
             Console.CursorVisible = false;
 
             Thread MouseThread = new Thread(Mouse.MouseThread);
