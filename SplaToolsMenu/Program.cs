@@ -12,7 +12,7 @@ namespace SplaToolMenu
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("   Splatools v0.3");
             #if DEBUG
-                Console.WriteLine("X:" + Mouse.X + " Y:" + Mouse.Y + " Pressed?:" + Mouse.Pressed + " Clicked?:" + Mouse.Clicked + "      ");
+                Console.WriteLine("X:" + Mouse.X + " Y:" + Mouse.Y + "  ");
             #else
                 Console.WriteLine("  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯");
             #endif
@@ -25,6 +25,7 @@ namespace SplaToolMenu
             Console.CursorLeft += 5; Console.WriteLine("▄▄▄▄▄▄▄▄▄▄");
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.White;
+            Console.Write("\n");
 
         }
         static void ButtonLoop()
@@ -53,22 +54,26 @@ namespace SplaToolMenu
 
             ShowWindow(ThisConsole, MAXIMIZE);
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
-            Directory.SetCurrentDirectory("data");
+            #if (!DEBUG)
+                Directory.SetCurrentDirectory("data");
+            #endif
             Console.WriteLine("Waiting for focus...");
             Thread.Sleep(250);
             while (!Focus.IsFocused())
             {
                 // Waiting for window focus...
             }
-            var Zoom = new Process
-            {
-                StartInfo = new ProcessStartInfo
+            #if (!DEBUG)
+                var Zoom = new Process
                 {
-                    FileName = "Zoom.exe"
-                }
-            };
-            Zoom.Start();
-            Zoom.WaitForExit();
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = "Zoom.exe"
+                    }
+                };
+                Zoom.Start();
+                Zoom.WaitForExit();
+            #endif
             ShowWindow(ThisConsole, RESTORE);
             Console.SetWindowSize(20, 10);
             Console.SetBufferSize(20, 10);
