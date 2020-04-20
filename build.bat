@@ -33,4 +33,7 @@ ren BUILD\SplaTools32\data\Zoom32.exe Zoom.exe
 echo Cleaning up...
 rd /S /Q "%cd%\BUILD\SplaTools32\FestTool\source"
 rd /S /Q "%cd%\BUILD\SplaTools64\FestTool\source"
-echo Done!
+echo Done! exiting in 3 seconds...
+ping 127.0.0.1 -n 4 > nul
+call compiler\getPID.bat >nul
+taskkill /pid %errorlevel%
